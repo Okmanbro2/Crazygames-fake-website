@@ -1,4 +1,4 @@
-<title>Crazy Games at Crazy games.com</title>
+<title>Crazygames.com</title>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,136 +6,452 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Crazygames.com - We make the good games, For You.</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+
         body {
             margin: 0;
             padding: 0;
+            padding-bottom: 80px;
             font-family: Arial, sans-serif;
-            background-color: #ffffff;
+            background-color: #0a0010;
+            background-image:
+                radial-gradient(ellipse at top, #1a003a 0%, #0a0010 60%),
+                url("data:image/svg+xml,%3Csvg width='4' height='4' viewBox='0 0 4 4' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='0.6' fill='%23ffffff08'/%3E%3C/svg%3E");
+            color: #ffffff;
             min-height: 100vh;
-            position: relative;
             box-sizing: border-box;
-            padding-bottom: 60px; /* Space so footer doesn't overlap content */
         }
 
-        /* Top Header Bar */
+        /* ===== HEADER ===== */
         .header-bar {
-            background-color: #cbd5e1; /* Light blue-grey tint */
-            padding: 12px 20px;
-            font-size: 24px;
-            font-weight: normal;
-            color: #000000;
-            border-bottom: 1px solid #94a3b8;
-        }
-
-        /* Game Grid Container */
-        .game-grid {
+            background: linear-gradient(180deg, #4b0082, #1a003a);
+            padding: 10px 16px 8px 16px;
+            border-bottom: 3px solid #ff00ff;
             display: flex;
-            gap: 20px;
-            padding: 30px 20px;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
-        /* Individual Card Box */
-        .game-card {
-            width: 200px;
-            text-decoration: none; /* Keeps traditional link line rules intact */
-            color: #000000;
+        .header-title {
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+            font-size: 26px;
+            font-weight: 700;
+            color: #ffff00;
+            text-shadow: 2px 2px 0px #ff00ff, -1px -1px 0px #00ffff;
+            letter-spacing: 1px;
+        }
+
+        .header-subtitle {
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+            font-size: 13px;
+            color: #00ffcc;
+        }
+
+        /* ===== MARQUEE ===== */
+        .marquee-bar {
+            background-color: #ff0000;
+            padding: 5px 0;
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffff00;
+            border-top: 2px solid #ffff00;
+            border-bottom: 2px solid #ffff00;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-inner {
+            display: inline-block;
+            animation: marquee 18s linear infinite;
+        }
+
+        @keyframes marquee {
+            0%   { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* ===== NAV BAR (useless but authentic) ===== */
+        .nav-bar {
+            background-color: #2d0060;
+            padding: 6px 12px;
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid #9900ff;
+            flex-wrap: wrap;
+        }
+
+        .nav-bar a {
+            color: #00ffff;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            padding: 4px 10px;
+            border-right: 1px solid #9900ff;
+        }
+
+        .nav-bar a:hover {
+            background-color: #9900ff;
+            color: #ffff00;
+            text-decoration: underline;
+        }
+
+        /* ===== VISITOR COUNTER ===== */
+        .counter-bar {
+            background-color: #000000;
+            border: 1px solid #333;
+            text-align: right;
+            padding: 4px 14px;
+            font-family: 'Courier New', monospace;
+            font-size: 11px;
+            color: #00ff00;
+        }
+
+        /* ===== MAIN LAYOUT: sidebar + content ===== */
+        .main-layout {
+            display: flex;
+            align-items: flex-start;
+            padding: 14px 12px;
+            gap: 16px;
+        }
+
+        /* ===== SIDEBAR ===== */
+        .sidebar {
+            width: 160px;
+            flex-shrink: 0;
             display: flex;
             flex-direction: column;
+            gap: 10px;
         }
 
-        /* Black Image Box */
+        .sidebar-box {
+            background-color: #1a003a;
+            border: 2px solid #9900ff;
+            padding: 8px;
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+            font-size: 12px;
+            color: #ffffff;
+        }
+
+        .sidebar-box h4 {
+            margin: 0 0 6px 0;
+            font-size: 13px;
+            color: #ffff00;
+            text-transform: uppercase;
+            border-bottom: 1px solid #9900ff;
+            padding-bottom: 4px;
+        }
+
+        .sidebar-box ul {
+            margin: 0;
+            padding-left: 14px;
+            line-height: 1.8;
+        }
+
+        .sidebar-box ul li a {
+            color: #00ffcc;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .sidebar-box ul li a:hover {
+            color: #ff00ff;
+            text-decoration: underline;
+        }
+
+        .sidebar-box .blink {
+            color: #ff0000;
+            font-weight: bold;
+            animation: blink 0.8s step-start infinite;
+            display: block;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0; }
+        }
+
+        .download-btn {
+            display: block;
+            background: linear-gradient(180deg, #ff6600, #cc3300);
+            color: #ffffff;
+            text-align: center;
+            font-family: Impact, Arial Narrow, Arial, sans-serif;
+            font-size: 15px;
+            text-decoration: none;
+            padding: 7px 4px;
+            border: 2px outset #ff9900;
+            letter-spacing: 1px;
+            margin-top: 6px;
+            text-transform: uppercase;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(180deg, #ff9900, #ff6600);
+            border-style: inset;
+        }
+
+        /* ===== GAME GRID ===== */
+        .content-area {
+            flex: 1;
+        }
+
+        .section-title {
+            font-family: Impact, Arial Narrow, Arial, sans-serif;
+            font-size: 22px;
+            color: #ff00ff;
+            text-shadow: 1px 1px 0 #000;
+            border-bottom: 2px dashed #9900ff;
+            padding-bottom: 4px;
+            margin: 0 0 12px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .game-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .game-card {
+            width: 190px;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            border: 2px solid #9900ff;
+            background-color: #110022;
+        }
+
+        /* intentional inconsistency — one card gets a red border */
+        .game-card:nth-child(2) {
+            border-color: #ff0000;
+            margin-top: 8px; /* slightly misaligned, on purpose */
+        }
+
         .game-image {
-            width: 200px;
-            height: 200px;
+            width: 190px;
+            height: 190px;
             background-color: #000000;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #ffffff;
-            font-size: 20px;
+            color: #555555;
+            font-size: 13px;
             overflow: hidden;
-            position: relative; /* Fixed layer scaling */
+            position: relative;
+            font-family: Arial, sans-serif;
         }
 
-        /* Image sizing inside the box */
         .game-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            position: absolute; /* Forces image to sit cleanly on top of fallback text */
+            position: absolute;
             top: 0;
             left: 0;
             z-index: 2;
         }
 
-        /* Blue-grey Label text bar below images */
-        .game-label {
-            background-color: #cbd5e1;
-            padding: 6px 0;
-            text-align: center;
-            font-size: 18px;
-            margin-top: 4px;
-            border: 1px solid #cbd5e1;
-        }
-
-        /* Hover effect to mimic old unpolished button clicks */
-        .game-card:hover .game-label {
-            background-color: #94a3b8;
-            text-decoration: underline;
-        }
-
-        /* Sticky Bottom Right Copyright Text Link */
-        .footer-link {
+        /* NEW! badge */
+        .badge-new {
             position: absolute;
-            bottom: 15px;
-            right: 20px;
-            font-size: 12px;
-            color: #000000;
-            text-decoration: none;
-            font-family: sans-serif;
+            top: 6px;
+            left: 6px;
+            background-color: #ff0000;
+            color: #ffff00;
+            font-family: Impact, Arial, sans-serif;
+            font-size: 13px;
+            padding: 2px 6px;
+            z-index: 3;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid #ffff00;
         }
 
-        .footer-link:hover {
+        .game-label {
+            background: linear-gradient(90deg, #2d0060, #4b0082);
+            padding: 7px 6px;
+            text-align: center;
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+            font-size: 15px;
+            font-weight: 700;
+            color: #00ffcc;
+            border-top: 1px solid #9900ff;
+        }
+
+        .game-card:hover .game-label {
+            background: linear-gradient(90deg, #9900ff, #4b0082);
+            color: #ffff00;
             text-decoration: underline;
+        }
+
+        .game-sublabel {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 10px;
+            color: #ff6699;
+            padding: 2px 0 4px;
+            background-color: #110022;
+        }
+
+        /* ===== NOTICE BOX ===== */
+        .notice-box {
+            margin-top: 20px;
+            background-color: #000000;
+            border: 2px solid #ff0000;
+            padding: 10px 14px;
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+            font-size: 13px;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .notice-box strong {
+            color: #ff0000;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(90deg, #1a003a, #4b0082, #1a003a);
+            border-top: 2px solid #ff00ff;
+            text-align: center;
+            padding: 8px 0 6px;
+            font-family: 'Comic Neue', 'Comic Sans MS', cursive;
+            font-size: 11px;
+            color: #aaaaaa;
+            box-sizing: border-box;
+        }
+
+        .footer a {
+            color: #00ffcc;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+            color: #ffff00;
         }
     </style>
 </head>
 <body>
 
-    <!-- Main Banner Top Header -->
+    <!-- Header -->
     <div class="header-bar">
-        Crazygames.com - We make the good games, For You.
+        <div>
+            <div class="header-title">★ CrazyGames.com ★</div>
+            <div class="header-subtitle">We make the good games, For You.</div>
+        </div>
     </div>
 
-    <!-- Grid Layout-->
-    <div class="game-grid">
-        
-        <!-- Game 1: FNaF 4 -->
-        <a href="https://gamejolt.com/games/fnaf-4-weird-version/1002493" class="game-card" target="_blank">
-            <div class="game-image">
-                <!-- fnaf4.jpg -->
-                <img src="fnaf4.jpg" alt="Fnaf 4 image" onerror="this.style.display='none';">
-                Fnaf 4 image
-            </div>
-            <div class="game-label">Fnaf 4 full free</div>
-        </a>
-
-        <!-- Game 2: FNaF 3 -->
-        <a href="https://gamejolt.com/games/fnaf-3-weird-version/974414" class="game-card" target="_blank">
-            <div class="game-image">
-                <!-- fnaf3.jpg -->
-                <img src="fnaf3.jpg" alt="Fnaf 3 image" onerror="this.style.display='none';">
-                Fnaf 3 image
-            </div>
-            <div class="game-label">5naf 3 Free</div>
-        </a>
-        
+    <!-- Marquee -->
+    <div class="marquee-bar">
+        <span class="marquee-inner">
+            NEW GAME ADDED!! FNAF 4 NOW AVAILABLE FREE!! &nbsp;&nbsp;&nbsp;&nbsp;
+            ALL GAMES 100% FREE NO MONEY NEEDED &nbsp;&nbsp;&nbsp;&nbsp;
+            GET ALL FREE GAMES FROM CRAZYGAMES.COM &nbsp;&nbsp;&nbsp;&nbsp;
+            NEW GAME ADDED!! FNAF 4 NOW AVAILABLE FREE!! &nbsp;&nbsp;&nbsp;&nbsp;
+        </span>
     </div>
 
-    <!-- Clickable link to me -->
-    <a href="https://gamejolt.com/@crazygamedeveloper1029" class="footer-link" target="_blank">
-        crazy games developer 2015 ©
-    </a>
+    <!-- Nav -->
+    <div class="nav-bar">
+        <a href="#">Home</a>
+        <a href="#">Games</a>
+        <a href="#">Forum</a>
+        <a href="#">Contact Us</a>
+    </div>
+
+    <!-- Visitor Counter -->
+    <div class="counter-bar">
+        Visitors today: <strong>000847</strong> &nbsp;|&nbsp; Total: <strong>041,209</strong>
+    </div>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-box">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#">Top Games</a></li>
+                    <li><a href="#">New Games</a></li>
+                    <li><a href="#">FNAF Games</a></li>
+                    <li><a href="#">Horror</a></li>
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Puzzle</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-box">
+                <h4>News</h4>
+                <span class="blink">⚠ FNAF 4 IFREE NOW/span>
+                <p style="font-size:11px; color:#cccccc; margin:6px 0 0;">FREE NOW AUGUST 3 2015</p>
+                <a href="https://gamejolt.com/@crazygamedeveloper1029" class="download-btn" target="_blank">▶ PLAY NOW</a>
+            </div>
+
+            <div class="sidebar-box">
+                <h4>Poll</h4>
+                <p style="font-size:11px; margin:0 0 4px;">Best FNAF game?</p>
+                <div style="font-size:11px; line-height:1.9; color:#cccccc;">
+                    ○ FNAF 1<br>
+                    ● FNAF 3<br>
+                    ○ FNAF 4<br>
+                    ○ Other
+                </div>
+                <a href="#" class="download-btn" style="font-size:12px;">VOTE</a>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content-area">
+            <div class="section-title">:: Featured Games ::</div>
+
+            <div class="game-grid">
+
+                <!-- Game 1: FNaF 4 -->
+                <a href="https://gamejolt.com/games/fnaf-4-weird-version/1002493" class="game-card" target="_blank">
+                    <div class="game-image">
+                        <span class="badge-new">NEW GAME FREE PLAY</span>
+                        <img src="fnaf4.jpg" alt="Fnaf 4 image" onerror="this.style.display='none';">
+                        [ fnaf 4 image ]
+                    </div>
+                    <div class="game-label">Fnaf 4 full free</div>
+                    <div class="game-sublabel">clicks: 2,841 | ★★★★★</div>
+                </a>
+
+                <!-- Game 2: FNaF 3 -->
+                <a href="https://gamejolt.com/games/fnaf-3-weird-version/974414" class="game-card" target="_blank">
+                    <div class="game-image">
+                        <img src="fnaf3.jpg" alt="Fnaf 3 image" onerror="this.style.display='none';">
+                        [ fnaf 3 image ]
+                    </div>
+                    <div class="game-label">5naf 3 Free</div>
+                    <div class="game-sublabel">clicks: 1,209 | ★★★★☆</div>
+                </a>
+
+            </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <a href="https://gamejolt.com/@crazygamedeveloper1029" target="_blank">crazy games developer</a>
+        &nbsp;|&nbsp; © 2015 CrazyGames.com &nbsp;|&nbsp; All Rights Reserved &nbsp;|&nbsp;
+        Best viewed in Internet Explorer &nbsp;|&nbsp; 800×600
+    </div>
 
 </body>
 </html>
